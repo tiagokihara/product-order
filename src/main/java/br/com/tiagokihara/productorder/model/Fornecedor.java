@@ -1,5 +1,6 @@
 package br.com.tiagokihara.productorder.model;
 
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -21,7 +22,7 @@ public class Fornecedor {
 	public String getCnpj() {
 		return cnpj;
 	}
-
+	
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
@@ -32,5 +33,18 @@ public class Fornecedor {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Fornecedor that = (Fornecedor) o;
+		return Objects.equals(cnpj, that.cnpj) && Objects.equals(nome, that.nome);
+	}
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(cnpj, nome);
 	}
 }
