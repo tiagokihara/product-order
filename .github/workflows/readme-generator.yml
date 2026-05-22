@@ -29,7 +29,7 @@ jobs:
 
       - name: Generate README
         env:
-          GEMINI_API_KEY: ${{ secrets.AGENT_SECRET }}
+          AGENT_SECRET: ${{ secrets.AGENT_SECRET }}
         run: node .github/scripts/generate-readme.js
 
       - name: Check for changes
