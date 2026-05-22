@@ -62,6 +62,11 @@ Output ONLY markdown.
 
   const text = result.response.text();
 
+  text = text
+  .replace(/^```markdown/gm, "")
+  .replace(/^```/gm, "")
+  .trim();
+
   fs.writeFileSync("README.md", text);
 
   console.log("README updated");
