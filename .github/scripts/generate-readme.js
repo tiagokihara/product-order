@@ -60,7 +60,7 @@ Output ONLY markdown.
 
   const result = await model.generateContent(prompt);
 
-  const text = result.response.text();
+  let text = result.response.text();
 
   text = text
   .replace(/^```markdown/gm, "")
